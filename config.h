@@ -43,6 +43,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int attachbelow = 1;    /* 1 means attach after the currently active window */
 
+#include "fibonacci.c"
 #include "gaplessgrid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -54,6 +55,8 @@ static const Layout layouts[] = {
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
 	{ "###",	  gaplessgrid },
+ 	{ "[@]",      spiral },
+ 	{ "[\\]",     dwindle },
 };
 
 /* key definitions */
@@ -100,6 +103,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} }, /* focusedmaster */
 	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} }, /* fmasterfloat */
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[7]} }, /* gaplessgrid */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[8]} }, /* spiral */
+	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[9]} }, /* dwindle */
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
