@@ -31,10 +31,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor    scratch key */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        0  },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        0  },
-	{ NULL,       NULL,   "scratchpad",   0,            1,           -1,       's' },
+	/* class      instance    title       tags mask     isfloating   monitor    float x,y,w,h       fbord   scratchkey*/
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        50,50,500,500,      5,      0 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        50,50,500,500,      5,      0 },
+	{ NULL,       NULL,   "scratchpad",   0,            1,           -1,        100,100,1000,800,   5,     's'},
 };
 
 /* layout(s) */
