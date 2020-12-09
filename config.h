@@ -121,4 +121,4 @@ static Button buttons[] = {
 };
 
 /* quitting */
-static const int EMPTY_WINDOW_COUNT = 20;
+static const int EMPTY_WINDOW_COUNT = 17;
