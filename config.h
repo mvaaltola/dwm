@@ -127,6 +127,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
-/* quitting */
-static const int EMPTY_WINDOW_COUNT = 17;

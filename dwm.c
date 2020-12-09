@@ -1300,15 +1300,7 @@ quit(const Arg *arg)
 {
 	/* restartsig */
 	if(arg->i) restart = 1;
-	/* onlyquitonempty */
-	unsigned int n;
-	Window *junk = malloc(1);
-	XQueryTree(dpy, root, junk, junk, &junk, &n);
-	if (n <= EMPTY_WINDOW_COUNT)
-		running = 0;
-	else
-		printf("[dwm] not exiting (n=%d)\n", n);
-	free(junk);
+	running = 0;
 }
 
 Monitor *
