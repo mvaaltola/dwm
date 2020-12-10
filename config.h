@@ -45,6 +45,8 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int attachbelow = 1;    /* 1 means attach after the currently active window */
 
+#include "bottomstack.c"
+#include "centeredmaster.c"
 #include "fibonacci.c"
 #include "gaplessgrid.c"
 static const Layout layouts[] = {
@@ -53,7 +55,6 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
 	{ "###",	  gaplessgrid },
@@ -101,16 +102,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /* tiled */
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, /* floating */
+	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} }, /* monocle */
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[3]} }, /* bottomstack */
-	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[4]} }, /* bstackhoriz */
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} }, /* focusedmaster */
-	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} }, /* fmasterfloat */
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[7]} }, /* gaplessgrid */
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[8]} }, /* spiral */
-	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[9]} }, /* dwindle */
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} }, /* focusedmaster */
+	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[5]} }, /* fmasterfloat */
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[6]} }, /* gaplessgrid */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[7]} }, /* spiral */
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[8]} }, /* dwindle */
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
