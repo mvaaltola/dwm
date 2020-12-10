@@ -34,9 +34,10 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    scratchkey*/
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        0 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        0 },
-	{ NULL,       NULL,      "stsp",      0,            1,           -1,       's'},
+	{ NULL,       NULL,      "stsp",      0,            1,           -1,       't'},
 	{ NULL,       NULL,      "lfsp",      0,            1,           -1,       'l'},
 	{ "ramboxpro",NULL,       NULL,       0,            1,           -1,       'r'},
+	{ "Spotify",  NULL,       NULL,       0,            1,           -1,       's'},
 };
 
 /* layout(s) */
@@ -80,9 +81,10 @@ static const char *roficmd[] = { "rofi", "-show", "combi", NULL};
 static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "stsp", NULL};
+static const char *scratchpadcmd[] = {"t", "st", "-t", "stsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
 static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NULL};
+static const char *spscratchpadcmd[] = {"s", "spotify", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -91,6 +93,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_a,      togglescratch,  {.v = rbscratchpadcmd } },
 	{ MODKEY,                       XK_e,      togglescratch,  {.v = lfscratchpadcmd } },
+	{ MODKEY,                       XK_s,      togglescratch,  {.v = spscratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
