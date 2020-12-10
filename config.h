@@ -34,7 +34,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    float x,y,w,h       fbord   scratchkey*/
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        50,50,500,500,      5,      0 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        50,50,500,500,      5,      0 },
-	{ NULL,       NULL,   "scratchpad",   0,            1,           -1,        100,100,1000,800,   5,     's'},
+	{ NULL,       NULL,      "stsp",      0,            1,           -1,        100,100,1000,800,   5,     's'},
+	{ NULL,       NULL,      "lfsp",      0,            1,           -1,        500,200,1200,800,    5,     'l'},
+	{ "ramboxpro",NULL,       NULL,       0,            1,           -1,        100,100,1000,800,   5,     'r'},
 };
 
 /* layout(s) */
@@ -77,13 +79,17 @@ static const char *roficmd[] = { "rofi", "-show", "combi", NULL};
 static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL};
+static const char *scratchpadcmd[] = {"s", "st", "-t", "stsp", NULL};
+static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
+static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_a,      togglescratch,  {.v = rbscratchpadcmd } },
+	{ MODKEY,                       XK_e,      togglescratch,  {.v = lfscratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
