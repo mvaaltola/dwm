@@ -36,9 +36,9 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        0 },
 	{ NULL,       NULL,      "stsp",      0,            1,           -1,       't'},
 	{ NULL,       NULL,      "lfsp",      0,            1,           -1,       'l'},
-	{ "ramboxpro",NULL,       NULL,       0,            1,           -1,       'r'},
-	{ "Spotify",  NULL,       NULL,       0,            1,           -1,       's'},
-	{ "Mailspring",NULL,      NULL,       0,            1,           -1,       'm'},
+	{"ramboxpro", NULL,       NULL,       0,            1,           -1,       'r'},
+	{"Spotify",   NULL,       NULL,       0,            1,           -1,       's'},
+	{"Mailspring",NULL,       NULL,       0,            1,           -1,       'm'},
 };
 
 /* layout(s) */
@@ -83,9 +83,9 @@ static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"t", "st", "-t", "stsp", NULL};
-static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
+static const char *rbscratchpadcmd[] = {"r", "ramboxspawn", NULL};
 static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NULL};
-static const char *spscratchpadcmd[] = {"s", "spotify", NULL};
+static const char *spscratchpadcmd[] = {"s", "spotifyspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 
 static Key keys[] = {
