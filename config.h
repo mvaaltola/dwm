@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	{ NULL,       NULL,      "lfsp",      0,            1,           -1,       'l'},
 	{ "ramboxpro",NULL,       NULL,       0,            1,           -1,       'r'},
 	{ "Spotify",  NULL,       NULL,       0,            1,           -1,       's'},
+	{ "Mailspring",NULL,      NULL,       0,            1,           -1,       'm'},
 };
 
 /* layout(s) */
@@ -58,9 +59,9 @@ static const Layout layouts[] = {
 	{ "TTT",      bstack },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
-	{ "###",	  gaplessgrid },
- 	{ "[@]",      spiral },
- 	{ "[\\]",     dwindle },
+	{ "###",      gaplessgrid },
+	{ "[@]",      spiral },
+	{ "[\\]",     dwindle },
 };
 
 /* key definitions */
@@ -85,6 +86,7 @@ static const char *scratchpadcmd[] = {"t", "st", "-t", "stsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
 static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NULL};
 static const char *spscratchpadcmd[] = {"s", "spotify", NULL};
+static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -94,6 +96,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_a,      togglescratch,  {.v = rbscratchpadcmd } },
 	{ MODKEY,                       XK_e,      togglescratch,  {.v = lfscratchpadcmd } },
 	{ MODKEY,                       XK_s,      togglescratch,  {.v = spscratchpadcmd } },
+	{ MODKEY,                       XK_m,      togglescratch,  {.v = msscratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
