@@ -10,7 +10,7 @@ static const int gappx              = 20;        /* gaps between windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "monospace:size=10" };
+static char *fonts[]          = { "IBMPlexMono:size=10:antialias=True:autohint=True", "Font Awesome 5 Free:pixelsize=10:antialias=true:autohint=true" };
 static char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]     = "#222222";
 static char normbordercolor[] = "#444444";
@@ -48,6 +48,7 @@ static const Rule rules[] = {
 	{"ramboxpro", NULL,       NULL,       0,            1,           -1,       'r'},
 	{"Spotify",   NULL,       NULL,       0,            1,           -1,       's'},
 	{"Mailspring",NULL,       NULL,       0,            1,           -1,       'm'},
+	{ NULL,       NULL,      "qnsp",      0,            1,           -1,       'q'},
 };
 
 /* layout(s) */
@@ -115,6 +116,7 @@ static const char *rbscratchpadcmd[] = {"r", "ramboxspawn", NULL};
 static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NULL};
 static const char *spscratchpadcmd[] = {"s", "spotifyspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
+static const char *qnscratchpadcmd[] = {"q", "st", "-t", "qnsp", "-e", "quicknote", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -125,6 +127,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_e,      togglescratch,  {.v = lfscratchpadcmd } },
 	{ MODKEY,                       XK_s,      togglescratch,  {.v = spscratchpadcmd } },
 	{ MODKEY,                       XK_m,      togglescratch,  {.v = msscratchpadcmd } },
+	{ MODKEY,                       XK_z,      togglescratch,  {.v = qnscratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
