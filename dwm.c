@@ -2455,7 +2455,7 @@ togglescratch(const Arg *arg)
 			if (!found || (mon == selmon && c->mon != selmon))
 				found = c;
 
-			unfocus(c, 0); // unfocus to avoid client border discrepancies
+			unfocus(c, 0, NULL); // unfocus to avoid client border discrepancies
 
 			/* If scratchpad clients reside on another monitor and we are moving them across then
 			   as we are looping through monitors we could be moving a client to a monitor that has
