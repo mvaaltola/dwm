@@ -1,15 +1,12 @@
-dwm - dynamic window manager
-============================
+# dwm - dynamic window manager
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 
-Requirements
-------------
+## Requirements
 In order to build dwm you need the Xlib header files.
 
 
-Installation
-------------
+## Installation
 Edit config.mk to match your local setup (dwm is installed into
 the /usr/local namespace by default).
 
@@ -18,9 +15,10 @@ necessary as root):
 
     make clean install
 
+Optionally, copy the dwm.desktop file to `/usr/share/xsessions/` to
+display it in display managers such as LighDM.
 
-Running dwm
------------
+## Running dwm
 Add the following line to your .xinitrc to start dwm using startx:
 
     exec dwm
@@ -34,15 +32,14 @@ the DISPLAY environment variable is set correctly, e.g.:
 
 In order to display status info in the bar, you can do something
 like this in your .xinitrc:
-
+```
     while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
     do
     	sleep 1
     done &
     exec dwm
+```
 
-
-Configuration
--------------
+## Configuration
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
