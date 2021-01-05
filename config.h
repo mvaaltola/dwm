@@ -54,6 +54,7 @@ static const Rule rules[] = {
 	{"Spotify",   NULL,       NULL,       0,            1,          "50% 50%",  -1,       's'},
 	{"Mailspring",NULL,       NULL,       0,            1,          "50% 50%",  -1,       'm'},
 	{ NULL,       NULL,      "qnsp",      0,            1,          "50% 50%",  -1,       'q'},
+	{"Vivaldi-stable",NULL,   NULL,       0,            0,           NULL,      -1,       'w'},
 
 };
 
@@ -109,6 +110,7 @@ static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NUL
 static const char *spscratchpadcmd[] = {"s", "spotify", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 static const char *qnscratchpadcmd[] = {"q", "st", "-t", "qnsp", "-e", "quicknote", NULL};
+static const char *viscratchpadcmd[] = {"w", "vivaldi-stable", NULL};
 
 /*
  * Xresources preferences to load at startup
@@ -136,6 +138,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_grave,  removescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ControlMask,           XK_grave,  setscratch,     {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_w,      togglescratch,  {.v = viscratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_w,      removescratch,  {.v = viscratchpadcmd } },
+	{ MODKEY|ControlMask,           XK_w,      setscratch,     {.v = viscratchpadcmd } },
 	{ MODKEY,                       XK_a,      togglescratch,  {.v = rbscratchpadcmd } },
 	{ MODKEY,                       XK_e,      togglescratch,  {.v = lfscratchpadcmd } },
 	{ MODKEY,                       XK_s,      togglescratch,  {.v = spscratchpadcmd } },
