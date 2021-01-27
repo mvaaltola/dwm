@@ -102,9 +102,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *roficmd[] = { "rofi", "-show", "combi", NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *termattachcmd[]  = { "st", "-e", "tmux", "a", NULL };
+static const char *termnewcmd[]  = { "st", "-e", "tmux", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"t", "st", "-t", "stsp", NULL};
+static const char *scratchpadcmd[] = {"t", "st", "-t", "stsp", "-e", "tmuxsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
 static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NULL};
 static const char *spscratchpadcmd[] = {"s", "spotify", NULL};
@@ -134,7 +136,9 @@ ResourcePref resources[] = {
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termattachcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termnewcmd } },
+	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_grave,  removescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ControlMask,           XK_grave,  setscratch,     {.v = scratchpadcmd } },
