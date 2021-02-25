@@ -101,17 +101,17 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *roficmd[] = { "rofi", "-show", "combi", NULL };
-static const char *termcmd[]  = { "st", NULL };
-static const char *termattachcmd[]  = { "st", "-e", "tmux", "a", NULL };
-static const char *termnewcmd[]  = { "st", "-e", "tmux", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termattachcmd[]  = { "alacritty", "-e", "tmux", "a", NULL };
+static const char *termnewcmd[]  = { "alacritty", "-e", "tmux", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"t", "st", "-t", "stsp", "-e", "tmuxsp", NULL};
+static const char *scratchpadcmd[] = {"t", "alacritty", "-t", "stsp", "-e", "tmuxsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
-static const char *lfscratchpadcmd[] = {"l", "st", "-t", "lfsp", "-e", "lf", NULL};
+static const char *lfscratchpadcmd[] = {"l", "alacritty", "-t", "lfsp", "-e", "lf", NULL};
 static const char *spscratchpadcmd[] = {"s", "spotify", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
-static const char *qnscratchpadcmd[] = {"q", "st", "-t", "qnsp", "-e", "quicknote", NULL};
+static const char *qnscratchpadcmd[] = {"q", "alacritty", "-t", "qnsp", "-e", "quicknote", NULL};
 static const char *ffscratchpadcmd[] = {"w", "firefox", NULL};
 
 /*
