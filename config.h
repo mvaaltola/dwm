@@ -102,8 +102,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *roficmd[] = { "rofi", "-show", "combi", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *termattachcmd[]  = { "alacritty", "-e", "tmux", "a", NULL };
-static const char *termnewcmd[]  = { "alacritty", "-e", "tmux", NULL };
+static const char *termattachcmd[]  = { "alacritty", "-e", "tmuxdd", NULL };
+static const char *termnewcmd[]  = { "alacritty", "-e", "tmuxnd", NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"t", "alacritty", "-t", "stsp", "-e", "tmuxsp", NULL};
