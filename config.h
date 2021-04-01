@@ -51,7 +51,7 @@ static const Rule rules[] = {
 	{ NULL,       NULL,      "stsp",      0,            1,          "50% 50%",  -1,       't'},
 	{ NULL,       NULL,      "lfsp",      0,            1,          "50% 50%",  -1,       'l'},
 	{"ramboxpro", NULL,       NULL,       0,            1,          "50% 50%",  -1,       'r'},
-	{"Spotify",   NULL,       NULL,       0,            1,          "50% 50%",  -1,       's'},
+	{ NULL,       NULL,      "sptsp",     0,            1,          "50% 50%",  -1,       's'},
 	{"Mailspring",NULL,       NULL,       0,            1,          "50% 50%",  -1,       'm'},
 	{ NULL,       NULL,      "qnsp",      0,            1,          "50% 50%",  -1,       'q'},
 	/* {"Vivaldi-stable",NULL,   NULL,       0,            0,           NULL,      -1,       'w'}, */
@@ -109,7 +109,7 @@ static const char *termnewcmd[]  = { "alacritty", "-e", "tmuxnd", NULL };
 static const char *scratchpadcmd[] = {"t", "alacritty", "-t", "stsp", "-e", "tmuxsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
 static const char *lfscratchpadcmd[] = {"l", "alacritty", "-t", "lfsp", "-e", "lf", NULL};
-static const char *spscratchpadcmd[] = {"s", "spotify", NULL};
+static const char *spscratchpadcmd[] = {"s", "alacritty", "-t", "sptsp", "-e", "sptspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 static const char *qnscratchpadcmd[] = {"q", "alacritty", "-t", "qnsp", "-e", "quicknote", NULL};
 static const char *ffscratchpadcmd[] = {"w", "firefox", NULL};
