@@ -24,7 +24,7 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
-static const unsigned int baralpha = 255;
+static const unsigned int baralpha = 0;
 static const unsigned int borderalpha = OPAQUE;
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -118,10 +118,10 @@ static const char *ffscratchpadcmd[] = {"w", "firefox", NULL};
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "color0",             STRING,  &normbgcolor },
+		{ "color15",             STRING,  &normbgcolor },
 		{ "color0",             STRING,  &normbordercolor },
 		{ "color3",             STRING,  &normfgcolor },
-		{ "color0",             STRING,  &selbgcolor },
+		{ "color15",             STRING,  &selbgcolor },
 		{ "color8",             STRING,  &selbordercolor },
 		{ "color3",             STRING,  &selfgcolor },
 		{ "borderpx",          	INTEGER, &borderpx },
