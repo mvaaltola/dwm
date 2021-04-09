@@ -46,15 +46,14 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   floatpos   monitor    scratch key */
-	{ "Gimp",     NULL,       NULL,       0,            1,           NULL,      -1,        0 },
-	{ "firefox",  NULL,       NULL,       0,            0,           NULL,      -1,       'w'},
+	/* { "firefox",  NULL,       NULL,       0,            0,           NULL,      -1,       'w'}, */
 	{ NULL,       NULL,      "stsp",      0,            1,          "50% 50%",  -1,       't'},
 	{ NULL,       NULL,      "lfsp",      0,            1,          "50% 50%",  -1,       'l'},
 	{"ramboxpro", NULL,       NULL,       0,            1,          "50% 50%",  -1,       'r'},
 	{ NULL,       NULL,      "sptsp",     0,            1,          "50% 50%",  -1,       's'},
 	{"Mailspring",NULL,       NULL,       0,            1,          "50% 50%",  -1,       'm'},
-	{ NULL,       NULL,      "qnsp",      0,            1,          "50% 50%",  -1,       'q'},
-	/* {"Vivaldi-stable",NULL,   NULL,       0,            0,           NULL,      -1,       'w'}, */
+	{"obsidian",  NULL,       NULL,       0,            1,          "50% 50%",  -1,       'z'},
+	{"Vivaldi-stable",NULL,   NULL,       0,            0,           NULL,      -1,       'w'},
 
 };
 
@@ -111,8 +110,8 @@ static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
 static const char *lfscratchpadcmd[] = {"l", "alacritty", "-t", "lfsp", "-e", "lf", NULL};
 static const char *spscratchpadcmd[] = {"s", "alacritty", "-t", "sptsp", "-e", "sptspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
-static const char *qnscratchpadcmd[] = {"q", "alacritty", "-t", "qnsp", "-e", "quicknote", NULL};
-static const char *ffscratchpadcmd[] = {"w", "firefox", NULL};
+static const char *qnscratchpadcmd[] = {"z", "obsidian", NULL};
+static const char *ffscratchpadcmd[] = {"w", "vivaldi-stable", NULL};
 
 /*
  * Xresources preferences to load at startup
