@@ -100,15 +100,15 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *roficmd[] = { "rofi", "-show", "combi", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
-static const char *termattachcmd[]  = { "alacritty", "-e", "tmuxdd", NULL };
-static const char *termnewcmd[]  = { "alacritty", "-e", "tmuxnd", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
+static const char *termattachcmd[]  = { "kitty", "-e", "tmuxdd", NULL };
+static const char *termnewcmd[]  = { "kitty", "-e", "tmuxnd", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"t", "alacritty", "-t", "stsp", "-e", "tmuxsp", NULL};
+static const char *scratchpadcmd[] = {"t", "kitty", "-T", "stsp", "-e", "tmuxsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
-static const char *lfscratchpadcmd[] = {"l", "alacritty", "-t", "lfsp", "-e", "lf", NULL};
-static const char *spscratchpadcmd[] = {"s", "alacritty", "-t", "sptsp", "-e", "sptspawn", NULL};
+static const char *lfscratchpadcmd[] = {"l", "kitty", "-T", "lfsp", "-e", "lf", NULL};
+static const char *spscratchpadcmd[] = {"s", "kitty", "-T", "sptsp", "-e", "sptspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 static const char *qnscratchpadcmd[] = {"z", "obsidian", NULL};
 static const char *ffscratchpadcmd[] = {"w", "vivaldi-stable", NULL};
@@ -117,12 +117,12 @@ static const char *ffscratchpadcmd[] = {"w", "vivaldi-stable", NULL};
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "color15",             STRING,  &normbgcolor },
+		{ "color0",             STRING,  &normbgcolor },
 		{ "color0",             STRING,  &normbordercolor },
-		{ "color3",             STRING,  &normfgcolor },
-		{ "color15",             STRING,  &selbgcolor },
+		{ "color15",            STRING,  &normfgcolor },
+		{ "color0",             STRING,  &selbgcolor },
 		{ "color8",             STRING,  &selbordercolor },
-		{ "color3",             STRING,  &selfgcolor },
+		{ "color15",            STRING,  &selfgcolor },
 		{ "borderpx",          	INTEGER, &borderpx },
 		{ "snap",          		INTEGER, &snap },
 		{ "showbar",          	INTEGER, &showbar },
