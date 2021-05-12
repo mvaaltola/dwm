@@ -53,6 +53,7 @@ static const Rule rules[] = {
 	{ NULL,       NULL,      "sptsp",     0,            1,          "50% 50%",  -1,       's'},
 	{"Mailspring",NULL,       NULL,       0,            1,          "50% 50%",  -1,       'm'},
 	{"obsidian",  NULL,       NULL,       0,            1,          "50% 50%",  -1,       'z'},
+	{"Marvin",    NULL,       NULL,       0,            1,          "50% 50%",  -1,       'x'},
 	{"Vivaldi-stable",NULL,   NULL,       0,            0,           NULL,      -1,       'w'},
 
 };
@@ -111,6 +112,7 @@ static const char *lfscratchpadcmd[] = {"l", "kitty", "-T", "lfsp", "-e", "lf", 
 static const char *spscratchpadcmd[] = {"s", "kitty", "-T", "sptsp", "-e", "sptspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 static const char *qnscratchpadcmd[] = {"z", "obsidian", NULL};
+static const char *tdscratchpadcmd[] = {"x", "amazingmarvin", NULL};
 static const char *ffscratchpadcmd[] = {"w", "vivaldi-stable", NULL};
 
 /*
@@ -149,6 +151,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      togglescratch,  {.v = spscratchpadcmd } },
 	{ MODKEY,                       XK_m,      togglescratch,  {.v = msscratchpadcmd } },
 	{ MODKEY,                       XK_z,      togglescratch,  {.v = qnscratchpadcmd } },
+	{ MODKEY,                       XK_x,      togglescratch,  {.v = tdscratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
