@@ -50,7 +50,6 @@ static const Rule rules[] = {
 	{ NULL,       NULL,      "stsp",      0,            1,          "50% 50%",  -1,       't'},
 	{ NULL,       NULL,      "lfsp",      0,            1,          "50% 50%",  -1,       'l'},
 	{"ramboxpro", NULL,       NULL,       0,            1,          "50% 50%",  -1,       'r'},
-	{ NULL,       NULL,      "sptsp",     0,            1,          "50% 50%",  -1,       's'},
 	{"Mailspring",NULL,       NULL,       0,            1,          "50% 50%",  -1,       'm'},
 	{"obsidian",  NULL,       NULL,       0,            1,          "50% 50%",  -1,       'z'},
 	{"Vivaldi-stable",NULL,   NULL,       0,            0,           NULL,      -1,       'w'},
@@ -108,7 +107,6 @@ static const char *termnewcmd[]  = { "kitty", "-e", "tmuxnd", NULL };
 static const char *scratchpadcmd[] = {"t", "kitty", "-T", "stsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
 static const char *lfscratchpadcmd[] = {"l", "kitty", "-T", "lfsp", "-e", "lf", NULL};
-static const char *spscratchpadcmd[] = {"s", "kitty", "-T", "sptsp", "-e", "sptspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 static const char *qnscratchpadcmd[] = {"z", "obsidian", NULL};
 static const char *ffscratchpadcmd[] = {"w", "vivaldi-stable", NULL};
@@ -146,7 +144,6 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_w,      setscratch,     {.v = ffscratchpadcmd } },
 	{ MODKEY,                       XK_a,      togglescratch,  {.v = rbscratchpadcmd } },
 	{ MODKEY,                       XK_e,      togglescratch,  {.v = lfscratchpadcmd } },
-	{ MODKEY,                       XK_s,      togglescratch,  {.v = spscratchpadcmd } },
 	{ MODKEY,                       XK_m,      togglescratch,  {.v = msscratchpadcmd } },
 	{ MODKEY,                       XK_z,      togglescratch,  {.v = qnscratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
