@@ -106,7 +106,7 @@ static const char *termnewcmd[]  = { "kitty", "-e", "tmuxnd", NULL };
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"t", "kitty", "-T", "stsp", NULL};
 static const char *rbscratchpadcmd[] = {"r", "ramboxpro", NULL};
-static const char *lfscratchpadcmd[] = {"l", "kitty", "-T", "lfsp", "-e", "lf", NULL};
+static const char *lfscratchpadcmd[] = {"l", "kitty", "-T", "lfsp", "-e", "lfspawn", NULL};
 static const char *msscratchpadcmd[] = {"m", "mailspring", NULL};
 static const char *qnscratchpadcmd[] = {"z", "obsidian", NULL};
 static const char *ffscratchpadcmd[] = {"w", "vivaldi-stable", NULL};
