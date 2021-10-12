@@ -16,7 +16,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray             = 1;   /* 0 means no systray */
 static int floatposgrid_x           = 5;        /* float grid columns */
 static int floatposgrid_y           = 5;        /* float grid rows */
-static const char *fonts[]          = { "IBMPlexMono:size=10:antialias=True:autohint=True", "Font Awesome 5 Free:pixelsize=10:antialias=true:autohint=true" };
+static const char *fonts[]          = { "CascadiaCodePL:size=10:antialias=True:autohint=True", "Font Awesome 5 Free:pixelsize=10:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
