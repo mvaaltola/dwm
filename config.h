@@ -1,40 +1,45 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx             = 0;        /* border pixel of windows */
-static unsigned int snap                 = 32;       /* snap pixel */
-static const unsigned int gappih         = 20;       /* horiz inner gap between windows */
-static const unsigned int gappiv         = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh         = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 30;       /* vert outer gap between windows and screen edge */
-static int smartgaps                     = 0;        /* 1 means no outer gap when there is only one window */
-static int showbar                       = 1;        /* 0 means no bar */
-static int topbar                        = 1;        /* 0 means bottom bar */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray             = 1;   /* 0 means no systray */
-static int floatposgrid_x           = 5;        /* float grid columns */
-static int floatposgrid_y           = 5;        /* float grid rows */
-static const char *fonts[]          = { "CascadiaCodePL:size=10:antialias=True:autohint=True", "Font Awesome 5 Free:pixelsize=10:antialias=true:autohint=true" };
-static const char dmenufont[]       = "monospace:size=10";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
-static const unsigned int baralpha = OPAQUE;
-static const unsigned int borderalpha = OPAQUE;
-static char *colors[][3] = {
-       /*               fg           bg           border   */
-       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+static unsigned int borderpx				= 0;	/* border pixel of windows */
+static unsigned int snap					= 32;	/* snap pixel */
+static const int swallowfloating			= 0;	/* 1 means swallow floating windows by default */
+static const unsigned int gappih			= 20;	/* horiz inner gap between windows */
+static const unsigned int gappiv			= 10;	/* vert inner gap between windows */
+static const unsigned int gappoh			= 10;	/* horiz outer gap between windows and screen edge */
+static const unsigned int gappov			= 30;	/* vert outer gap between windows and screen edge */
+static int smartgaps						= 0;	/* 1 means no outer gap when there is only one window */
+static int showbar							= 1;	/* 0 means no bar */
+static int topbar							= 1;	/* 0 means bottom bar */
+static const unsigned int systraypinning	= 0;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing	= 2;	/* systray spacing */
+static const int systraypinningfailfirst	= 1;	/* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray				= 1;	/* 0 means no systray */
+static int floatposgrid_x					= 5;	/* float grid columns */
+static int floatposgrid_y					= 5;	/* float grid rows */
+static const char dmenufont[]				= "monospace:size=10";
+static char normbgcolor[]					= "#222222";
+static char normbordercolor[]				= "#444444";
+static char normfgcolor[]					= "#bbbbbb";
+static char selfgcolor[]					= "#eeeeee";
+static char selbordercolor[]				= "#005577";
+static char selbgcolor[]					= "#005577";
+static const unsigned int baralpha			= OPAQUE;
+static const unsigned int borderalpha		= OPAQUE;
+static const char *fonts[]					= {
+	"CascadiaCodePL:size=10:antialias=True:autohint=True", "Font Awesome 5 Free:pixelsize=10:antialias=true:autohint=true"
 };
-static const unsigned int alphas[][3]      = {
-	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+
+/* colors */
+static char *colors[][3] = {
+	/*               fg           bg           border   */
+	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+	[SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+};
+static const unsigned int alphas[][3] = {
+	/*					fg		bg			border     */
+	[SchemeNorm] = {	OPAQUE,	baralpha,	borderalpha },
+	[SchemeSel]  = {	OPAQUE,	baralpha,	borderalpha },
 };
 
 /* tagging */
@@ -45,14 +50,15 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title     tagmask   isfloat floatpos   mon scratchkey */
-	{ NULL,       NULL,      "stsp",    0,        1,      "50% 50%", -1, 't'},
-	{ NULL,       NULL,      "lfsp",    0,        1,      "50% 50%", -1, 'l'},
-	{"ramboxpro", NULL,       NULL,     0,        1,      "50% 50%", -1, 'r'},
-	{"Mailspring",NULL,       NULL,     0,        1,      "50% 50%", -1, 'm'},
-	{"obsidian",  NULL,       NULL,     0,        1,      "50% 50%", -1, 'z'},
-	{"Vivaldi-stable",NULL,   NULL,     0,        0,      NULL,      -1, 'w'},
-
+	/* tag = tagmask, flt = isfloating, sh = isterminal, nsw = noswallow, mon = monitor */
+	/*	class		instance	title	tag	flt	floatpos	sh	nsw	mon	scratchkey */
+	{	"kitty",		NULL,	NULL,	0,	0,	NULL,		1,	0,	-1,	NULL},
+	{	NULL,			NULL,	"stsp",	0,	1,	"50% 50%",	1,	0,	-1,	't'	},
+	{	NULL,			NULL,	"lfsp",	0,	1,	"50% 50%",	0,	0,	-1,	'l'	},
+	{	"ramboxpro",	NULL,	NULL,	0,	1,	"50% 50%",	0,	0,	-1,	'r'	},
+	{	"Mailspring",	NULL,	NULL,	0,	1,	"50% 50%",	0,	0,	-1,	'm'	},
+	{	"obsidian",		NULL,	NULL,	0,	1,	"50% 50%",	0,	0,	-1,	'z'	},
+	{	"Vivaldi-stable",NULL,	NULL,	0,	0,	NULL,		0,	0,	-1,	'w'	},
 };
 
 /* layout(s) */
