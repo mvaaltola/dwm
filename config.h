@@ -45,14 +45,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   floatpos   monitor    scratch key */
-	/* { "firefox",  NULL,       NULL,       0,            0,           NULL,      -1,       'w'}, */
-	{ NULL,       NULL,      "stsp",      0,            1,          "50% 50%",  -1,       't'},
-	{ NULL,       NULL,      "lfsp",      0,            1,          "50% 50%",  -1,       'l'},
-	{"ramboxpro", NULL,       NULL,       0,            1,          "50% 50%",  -1,       'r'},
-	{"Mailspring",NULL,       NULL,       0,            1,          "50% 50%",  -1,       'm'},
-	{"obsidian",  NULL,       NULL,       0,            1,          "50% 50%",  -1,       'z'},
-	{"Vivaldi-stable",NULL,   NULL,       0,            0,           NULL,      -1,       'w'},
+	/* class      instance    title     tagmask   isfloat floatpos   mon scratchkey */
+	{ NULL,       NULL,      "stsp",    0,        1,      "50% 50%", -1, 't'},
+	{ NULL,       NULL,      "lfsp",    0,        1,      "50% 50%", -1, 'l'},
+	{"ramboxpro", NULL,       NULL,     0,        1,      "50% 50%", -1, 'r'},
+	{"Mailspring",NULL,       NULL,     0,        1,      "50% 50%", -1, 'm'},
+	{"obsidian",  NULL,       NULL,     0,        1,      "50% 50%", -1, 'z'},
+	{"Vivaldi-stable",NULL,   NULL,     0,        0,      NULL,      -1, 'w'},
 
 };
 
